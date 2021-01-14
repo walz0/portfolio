@@ -1,0 +1,47 @@
+.Cascade {
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    width: 400px;
+}
+
+.green {
+    background: #62bb47;
+    height: 35px;
+    width: 100%;
+}
+
+.yellow {
+    background: #fcb827;
+    height: 35px;
+    width: 83%;
+    width: 90%;
+}
+
+.orange {
+    background: #f6821f;
+    height: 35px;
+    width: 66%;
+    width: 80%;
+}
+
+.red {
+    background: #e03a3e;
+    height: 35px;
+    width: 50%;
+    width: 70%;
+}
+
+.purple {
+    background: #963d97;
+    height: 35px;
+    width: 33%;
+    width: 60%;
+}
+
+.blue{
+    background: #009ddc;
+    height: 35px;
+    width: 16%;
+    width: 50%;
+}

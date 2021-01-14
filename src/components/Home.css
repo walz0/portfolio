@@ -1,0 +1,48 @@
+.Home {
+    min-height: 100px;
+    padding-top: 100px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 50vw; 
+    margin: 0 auto 0 auto;
+    padding: 25px;
+}
+
+.paragraph {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+
+    display: block;
+    text-align: center;
+
+    font-size: 19px;
+}
+
+.code textarea {
+    background: #29282efd; 
+    border-radius: 5px;
+    border: none;
+    padding: 15px;
+
+    font-size: 18px;
+    outline: none;
+
+    resize: none;
+}
+
+code {
+    height: fit-content;
+
+    background: #29282efd;
+    border-radius: 5px;
+
+    padding: 15px;
+    margin: auto;
+}

@@ -1,0 +1,22 @@
+.Code pre {
+    width: 80%;
+
+    background: #29282efd; 
+    border-radius: 5px;
+    border: none;
+
+    margin: auto;
+    padding: 10px;
+    display: block;
+    white-space: pre-wrap;
+
+    line-height: 28px;
+
+    text-align: left;
+
+    font-size: 18px;
+    color: #ffffff;
+    outline: none;
+
+    resize: none;
+}
