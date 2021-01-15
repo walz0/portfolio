@@ -24,25 +24,3 @@
 
     font-size: 19px;
 }
-
-.code textarea {
-    background: #29282efd; 
-    border-radius: 5px;
-    border: none;
-    padding: 15px;
-
-    font-size: 18px;
-    outline: none;
-
-    resize: none;
-}
-
-code {
-    height: fit-content;
-
-    background: #29282efd;
-    border-radius: 5px;
-
-    padding: 15px;
-    margin: auto;
-}
