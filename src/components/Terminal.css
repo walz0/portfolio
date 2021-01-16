@@ -17,6 +17,7 @@
     word-break: normal !important;
     word-wrap: normal !important;
     white-space: pre !important;
+    line-height: 25px;
 
     overflow: auto;
 
@@ -41,4 +42,10 @@
 
     color: #ffffff;
     background: #000000; 
+}
+
+.titleBar {
+    width: 100%;
+    position: relative;
+    z-index: -1; 
 }
