@@ -1,0 +1,15 @@
+- Finish minimal functionality with terminal
+    - cd, ls, mkdir
+
+- Enumerate projects
+
+Terminal :: 
+    required commands ::
+        - ls / l
+        - pwd
+        - whoami
+        - cd
+        - mkdir
+        - cat
+
+    prevent default scroll on console window

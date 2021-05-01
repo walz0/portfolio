@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import './Code.css'
 
 export default class Code extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     async componentDidMount() {
         await this.props.text;
     }

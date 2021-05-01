@@ -11,8 +11,9 @@ export default class Terminal extends Component {
             lines: [],
             user: "root",
             wd: "~",
+            prevPath: "",
             fs: {
-                "": {
+                "~": {
                     "code": {},
                     "secret": {}
                 }
@@ -22,11 +23,19 @@ export default class Terminal extends Component {
         this.ref = React.createRef();
     }
 
+    // Push the latest command into history and execute
     push(input) {
+        // Parse input to remove undefined output
+        let parsed = []
+        for (var i = 0; i < input.length; i++) {
+            if (input[i] !== undefined) {
+                parsed.push(input[i]);
+            }
+        }
         this.setState({
             lines: 
                 this.state.lines.concat(
-                    input 
+                    parsed
                 )
         });
     }
@@ -34,54 +43,74 @@ export default class Terminal extends Component {
     getCommand(input) {
         const commands = {
             "pwd": () => { 
-                let base = "/root";
-                this.push(this.state.user + ":" + this.state.wd + input);
-                if (this.state.wd != "~") {
-                    this.push([
-                        this.state.user + ":" + this.state.wd + " " + input,
+                let base = "~";
+                // this.push(this.state.user + ":" + this.state.wd + input);
+                if (this.state.wd !== "~") {
+                    return ([
+                        this.state.user + ":" + this.state.wd + "$ " + input,
                         base + this.state.wd.slice(1)
                     ]); 
-                } else {
-                    this.push([
-                        this.state.user + ":" + this.state.wd + " " + input,
-                        base
-                    ]); 
+                } 
+                else {
+                    return this.state.user;
                 }
             },
-            "l": () => { 
+            "ls": () => { 
                 // Search file system for current directory
                 // Print dirs and files within current directory
                 let path = this.state.wd.split('/');
-                let currDir;
 
-                // Implement get parent dir
+                // All dirs that have been traversed
+                let traversed = [];
+                // Temp var for traversing fs
+                let temp = []; 
 
-                for (var dir in path) {
-                    currDir = path[dir];
-                }
-                let output = currDir;
-                this.push(currDir);
-            },
-            "ls": () => {},
-            "cd": (path) => {
-                let prefix = (this.state.wd == "") ? "" : this.state.wd + "/";
-                if (path.includes("/")) {
-                    // Relative path
-                    if (path.length - 1 > path.indexOf("/")) {
-                        this.setState({"wd": prefix + path});
+                for (var i = 0; i < path.length; i++) {
+                    if (JSON.stringify(path) == JSON.stringify(traversed)) {
+                        // Working dir has been found
+                        break;
                     }
-                    // Absolute path
-                    else { this.setState({"wd": path}) }
+                    // Temp var for traversing fs
+                    temp = this.state.fs[path[i]];
+                    // Push dir
+                    traversed.push(path[i]);
                 }
-                // Relative path without /
-                else { this.setState({"wd": prefix + path}); }
+                return (Object.keys(temp).join('  '));
             },
-            "mkdir": (dir_name) => {},
-            "banner": () => { this.push(`
+            "l": () => { this.getCommand("ls") },
+            "cd": (path) => {
+
+            },
+            "mkdir": (dirName) => {
+                // Search file system for current directory
+                // Print dirs and files within current directory
+                let path = this.state.wd.split('/');
+
+                // All dirs that have been traversed
+                let traversed = [];
+                // Temp var for traversing fs
+                let temp = []; 
+
+                for (var i = 0; i < path.length; i++) {
+                    if (JSON.stringify(path) == JSON.stringify(traversed)) {
+                        // Working dir has been found
+                        break;
+                    }
+                    // Temp var for traversing fs
+                    temp = this.state.fs[path[i]];
+                    // Push dir
+                    traversed.push(path[i]);
+                }
+
+                // Create new directory
+                temp[dirName] = {};
+            },
+            "banner": () => { return (`
                 This is a banner
                 ===========================
                 :)
-            `); }
+            `); },
+            "whoami": () => { return (this.state.user) }
         }
 
 
@@ -95,16 +124,17 @@ export default class Terminal extends Component {
 
         let selected = "";
         for (var c in commands) {
-            if (argv[0] == c) {
+            if (argv[0] === c) {
                 selected = c;
             }
         }
 
-        if (selected != "") {
+        if (selected !== "") {
+            let echo = `${this.state.user}:${this.state.wd}$ ${input}`;
             if (hasParams) {
-                commands[selected](argv.slice(1));
+                this.push([echo, commands[selected](argv.slice(1))]);
             } else {
-                commands[selected]();
+                this.push([echo, commands[selected]()]);
             }
         }
         else {
@@ -134,7 +164,8 @@ export default class Terminal extends Component {
                 value={ this.state.user + ":" + this.state.wd + "$ " + this.state.inputText}
                 onChange={this.handleInput.bind(this)}
                 onKeyDown={this.submitInput.bind(this)}
-                onClick={this.handleInput.bind(this)}></input>
+                onClick={this.handleInput.bind(this)}
+                spellCheck={false}></input>
         );
     }
 
@@ -147,7 +178,7 @@ export default class Terminal extends Component {
         }
 
         let lines = this.state.lines;
-        for (var i = 0; i < lines.length; i++) {
+        for (i = 0; i < lines.length; i++) {
             output += `${lines[i]}
             `;
         }
@@ -165,7 +196,7 @@ export default class Terminal extends Component {
         let key = e.keyCode;
         let enter = 13;
 
-        if (key == enter) {
+        if (key === enter) {
             this.getCommand(this.state.inputText);
             this.setState({ 
                 inputText: "",
