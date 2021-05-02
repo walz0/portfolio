@@ -44,10 +44,8 @@ export default class Terminal extends Component {
         const commands = {
             "pwd": () => { 
                 let base = "~";
-                // this.push(this.state.user + ":" + this.state.wd + input);
                 if (this.state.wd !== "~") {
                     return ([
-                        this.state.user + ":" + this.state.wd + "$ " + input,
                         base + this.state.wd.slice(1)
                     ]); 
                 } 
@@ -75,13 +73,11 @@ export default class Terminal extends Component {
                     // Push dir
                     traversed.push(path[i]);
                 }
-                return (Object.keys(temp).join('  '));
-            },
-            "l": () => { this.getCommand("ls") },
-            "cd": (path) => {
 
+                return (temp == undefined) ? undefined : Object.keys(temp).join('  ');
             },
-            "mkdir": (dirName) => {
+            // "l": () => { return this.getCommand("ls") },
+            "cd": (newPath) => {
                 // Search file system for current directory
                 // Print dirs and files within current directory
                 let path = this.state.wd.split('/');
@@ -102,8 +98,86 @@ export default class Terminal extends Component {
                     traversed.push(path[i]);
                 }
 
+                // Do not change directory
+                if (newPath[0] == ".") {
+                    return undefined;
+                }
+                else if (newPath[0] == "..") {
+                    // Get directories as list
+                    let dirs = this.state.wd.split('/');
+                    // Update working directory
+                    this.setState({
+                        wd: dirs.slice(0, dirs.length - 1).join('/')
+                    });
+                    return undefined;
+                }
+                else {
+                    // Current directory environment
+                    let context = temp;
+
+                    let prefix = newPath[0].slice(0, 2);
+
+                    // if ../path or ./path
+                    if (prefix == "./") {
+                        // Same behavior as without ./
+                        this.setState({
+                            wd: this.state.wd + '/' + newPath[0].slice(2)
+                        })
+                        return undefined;
+                    }
+                    else if (prefix == "..") {
+                        
+                    }
+                    else {
+                        this.setState({
+                            wd: this.state.wd + '/' + newPath
+                        })
+                        return undefined;
+                    }
+                }
+            },
+            "mkdir": (dirName) => {
+                if (dirName == undefined) {
+                    return 'mkdir: missing operand';
+                }
+
+                // Search file system for current directory
+                // Print dirs and files within current directory
+                let path = this.state.wd.split('/');
+
+                // If root
+                if (path[0] == "~") {
+                    let temp = this.state.fs;
+                    temp['~'][dirName] = {};
+                    this.setState({
+                        fs: temp
+                    });
+                    return undefined;
+                }
+
+                // All dirs that have been traversed
+                let traversed = [];
+                // Temp var for traversing fs
+                let temp = []; 
+
+                for (var i = 0; i < path.length - 1; i++) {
+                    if (JSON.stringify(path) == JSON.stringify(traversed)) {
+                        // Working dir has been found
+                        break;
+                    }
+                    // Temp var for traversing fs
+                    temp = this.state.fs[path[i]];
+                    // Push dir
+                    traversed.push(path[i]);
+                }
+
+                let currDir = path[path.length - 1];
                 // Create new directory
-                temp[dirName] = {};
+                temp[currDir][dirName] = {};
+                // Update state
+                this.setState({
+                    fs: temp
+                });
             },
             "banner": () => { return (`
                 This is a banner
@@ -138,7 +212,7 @@ export default class Terminal extends Component {
             }
         }
         else {
-            this.push(`${input}: command not found`);
+            this.push([`${input}: command not found`]);
         }
     }
 

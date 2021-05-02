@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import './Code.css'
 
 export default class Code extends Component {
-    async componentDidMount() {
-        await this.props.text;
+    componentDidMount() {
+        // await this.props.text;
     }
 
     textBox() {
