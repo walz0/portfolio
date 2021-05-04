@@ -1,0 +1,23 @@
+.Section {
+    background: #9198e5;
+    background: radial-gradient(circle, #E3879E 0%, #8B5FBF 100%);
+
+    width: 100%;
+    padding: 50px;
+
+}
+
+.Section .title {
+    font-family: "Poppins";
+    font-size: 25px;
+}
+
+.Section .desc {
+    margin-top: 10px;
+    font-family: "Poppins";
+    font-size: 20px;
+}
+
+.Section .element{
+    margin-top: 25px;
+}

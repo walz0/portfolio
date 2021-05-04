@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './Project.css';
 
 export default class Project extends Component {
     constructor(props) {
@@ -16,7 +17,7 @@ export default class Project extends Component {
             <div className="Project">
                 <div className="project-title">{ this.props.title }</div>
                 <div className="project-desc">{ this.props.desc }</div>
-                <div className="github">{ this.props.github }</div>
+                <a className="github" href={ this.props.git }>{this.props.git}</a>
             </div>
         )
     }

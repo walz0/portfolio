@@ -1,12 +1,16 @@
 .Terminal {
-    background: #000000; 
+    background: #1e1e1e; 
     width: 40vw;
     height: 20vw;
 
-    padding: 15px;
-    border-radius: 5px;
+    padding: 15px 15px 45px 15px;
+    border-radius: 10px;
 
-    margin: auto;
+    position: relative;
+
+    box-shadow: 3px 19px 7px #00000062;
+
+    margin: auto auto 60px auto;
 }
 
 .Terminal pre {
@@ -19,7 +23,7 @@
     white-space: pre !important;
     line-height: 25px;
 
-    overflow: auto;
+    overflow: hidden;
 
     margin: 0;
 
@@ -32,20 +36,55 @@
 
     border: none;
     outline: none;
+    border-radius: 10px;
 
     font-family: 'Courier New', Courier, monospace;
 
     margin: 10px 0 0 -15px;
 
-    font-size: 18px;
+    font-size: 17px;
     padding: 15px;
 
     color: #ffffff;
-    background: #000000; 
+    background: #1e1e1e
 }
 
 .titleBar {
     width: 100%;
-    position: relative;
-    z-index: -1; 
+    background: #dddddd;
+    background: linear-gradient(#e3e3e3, #cfcfcf);
+
+    padding: 5px 0 5px 0;
+    top: 0;
+    left: 0;
+
+    color: #000000;
+
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    position: absolute;
+    z-index: 1; 
+}
+
+.controls {
+    width: fit-content;
+
+    display: flex;
+    justify-content: left;
+
+    position: absolute;
+
+    margin: 2px 0 0 10px;
+}
+
+.circle{
+    width: 15px;
+    height: 15px;
+
+    margin: 0 4px 0 0;
 }

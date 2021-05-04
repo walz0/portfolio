@@ -1,11 +1,13 @@
 .Code pre {
     width: 80%;
 
-    background: #29282efd; 
+    /* background: #8B5FBF;  */
+    background: #9198e5;
+    background: radial-gradient(circle, #9198e5 0%, #8B5FBF 100%);
     border-radius: 5px;
     border: none;
 
-    margin: auto;
+    margin: auto auto 20px auto;
     padding: 10px;
     display: block;
     white-space: pre-wrap;
@@ -15,7 +17,7 @@
     text-align: left;
 
     font-size: 18px;
-    color: #ffffff;
+    color: #fff;
     outline: none;
 
     resize: none;

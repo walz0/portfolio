@@ -291,10 +291,27 @@ export default class Terminal extends Component {
         }
     }
 
+    circle(color) {
+        return(
+            <div className="circle">
+                <svg viewBox="0 0 100 100" id="circle">
+                    <circle cx="50" cy="50" r="50" fill={color} />
+                </svg>
+            </div>
+        );
+    }
+
     render() {
         return (
             <div className="Terminal">
-                {/* <div className="titleBar"></div> */}
+                <div className="titleBar">
+                    <div className="controls">
+                        { this.circle("#FF6059") }
+                        { this.circle("#FFBD2E") }
+                        { this.circle("#28CA42") }
+                    </div>
+                    root
+                </div>
                 { this.inputHistory() }
                 { this.inputBox() }
             </div>
