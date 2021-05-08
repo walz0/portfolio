@@ -8,7 +8,9 @@ export default class Terminal extends Component {
 
         this.state = {
             inputText: "",
-            lines: [],
+            lines: [
+                'Test'
+            ],
             user: "root",
             wd: "~",
             prevPath: "",
@@ -21,6 +23,12 @@ export default class Terminal extends Component {
         };
 
         this.ref = React.createRef();
+    }
+
+    componentDidMount () {
+        // Scroll any init text into view
+        let inputBox = this.ref.current;
+        inputBox.scrollTop = inputBox.scrollHeight + 50;
     }
 
     // Push the latest command into history and execute

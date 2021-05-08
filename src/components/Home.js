@@ -29,10 +29,6 @@ export default class Home extends Component {
                     } />
                     {/* <img className="hex" src={hexagon}></img> */}
                     <Terminal />
-                    {/* <Project 
-                        title={"papel"} 
-                        desc={"A raw text document router for writing papers in APA format"}
-                    git={"https://www.github.com/walz0/papel"} /> */}
                 </div>
                 <Section 
                     title="Github Statistics" 
@@ -40,6 +36,10 @@ export default class Home extends Component {
                         username="walz0" 
                         theme={exampleTheme} 
                         /> }/>
+                <Project 
+                    title={"papel"} 
+                    desc={"A raw text document router for writing papers in APA format"}
+                    git={"https://www.github.com/walz0/papel"} />
             </div>
         )
     }
