@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
 import './Terminal.css';
 
 export default class Terminal extends Component {
@@ -9,7 +10,19 @@ export default class Terminal extends Component {
         this.state = {
             inputText: "",
             lines: [
-                'Test'
+                `Welcome to my website! 
+                I'm a software engineer that works mainly in web design and data 
+                mining / bots. I also enjoy game design and develop games in the
+                Unity engine occasionally. Below is a collection of some notable 
+                projects, as well as this terminal, which is completely interactive!
+                ~
+                ~
+                ~
+                ~
+                ~
+                ~
+                ~
+                Type 'help' for more info on the available commands...`
             ],
             user: "root",
             wd: "~",
@@ -19,7 +32,8 @@ export default class Terminal extends Component {
                     "code": {},
                     "secret": {}
                 }
-            }
+            },
+            version: null
         };
 
         this.ref = React.createRef();
@@ -29,6 +43,15 @@ export default class Terminal extends Component {
         // Scroll any init text into view
         let inputBox = this.ref.current;
         inputBox.scrollTop = inputBox.scrollHeight + 50;
+
+        // Get total number of commits on portfolio
+        axios.get('https://api.github.com/repos/walz0/portfolio/commits')
+            .then((response) => {
+                this.setState({
+                    version: parseInt(response.data.length, 10)
+                })
+            })
+            .catch((err) => {})
     }
 
     // Push the latest command into history and execute
@@ -212,7 +235,7 @@ export default class Terminal extends Component {
         }
 
         if (selected !== "") {
-            let echo = `${this.state.user}:${this.state.wd}$ ${input}`;
+            let echo = `${this.state.user}:${this.state.wd}λ ${input}`;
             if (hasParams) {
                 this.push([echo, commands[selected](argv.slice(1))]);
             } else {
@@ -243,7 +266,8 @@ export default class Terminal extends Component {
     inputBox() {
         return(
             <input 
-                value={ this.state.user + ":" + this.state.wd + "$ " + this.state.inputText}
+                autoFocus={ true }
+                value={ this.state.user + ":" + this.state.wd + "λ " + this.state.inputText}
                 onChange={this.handleInput.bind(this)}
                 onKeyDown={this.submitInput.bind(this)}
                 onClick={this.handleInput.bind(this)}
@@ -261,11 +285,15 @@ export default class Terminal extends Component {
 
         let lines = this.state.lines;
         for (i = 0; i < lines.length; i++) {
+            if (i == 0) {
+                output += `portfoliOS :: [Version ${this.state.version}]
+                `;
+            }
             output += `${lines[i]}
             `;
         }
 
-        output = output.replace(/^\s+/mg, "")
+        output = output.replace(/^\s+/mg, "");
 
         return(
             <pre ref={this.ref}>

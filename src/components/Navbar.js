@@ -10,7 +10,7 @@ export default class Navbar extends Component {
                 <ul>
                     <div className="github-link">
                         <a href="https://www.github.com/walz0/" title="github.com/walz0">
-                            <FontAwesomeIcon icon={faGithub} size={60}/>
+                            <FontAwesomeIcon icon={faGithub} />
                         </a>
                     </div>
                 </ul>                

@@ -1,3 +1,9 @@
+- add language makeup pi chart
+    - chart.js
+
+- just the names of the repos then expand description on hover
+    - call api for description / languages
+
 - Finish minimal functionality with terminal
     - cd, ls, mkdir
 
@@ -11,5 +17,3 @@ Terminal ::
         - cd
         - mkdir
         - cat
-
-    prevent default scroll on console window

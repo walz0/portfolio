@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import Cascade from './Cascade';
 import Code from './Code';
 import './Home.css';
 import Terminal from './Terminal';
 import Project from './Project';
 import Section from './Section';
 import GitHubCalendar from 'react-github-calendar';
-import hexagon from '../hexagon.svg';
 
 export default class Home extends Component {
     render() {
@@ -27,7 +25,6 @@ export default class Home extends Component {
                         `$ whoami
                         > Aidan Walz`
                     } />
-                    {/* <img className="hex" src={hexagon}></img> */}
                     <Terminal />
                 </div>
                 <Section 
@@ -37,6 +34,22 @@ export default class Home extends Component {
                         theme={exampleTheme} 
                         /> }/>
                 <Project 
+                    title={"papel"} 
+                    desc={"A raw text document router for writing papers in APA format"}
+                    git={"https://www.github.com/walz0/papel"} />
+                <Project 
+                    title={"stock-py"} 
+                    desc={"A library of functions for scraping and analyzing stock market data"}
+                    git={"https://www.github.com/walz0/papel"} />
+                <Project 
+                    title={"papel"} 
+                    desc={"A raw text document router for writing papers in APA format"}
+                    git={"https://www.github.com/walz0/papel"} />
+                <Project 
+                    title={"papel"} 
+                    desc={"A raw text document router for writing papers in APA format"}
+                    git={"https://www.github.com/walz0/papel"} />
+               <Project 
                     title={"papel"} 
                     desc={"A raw text document router for writing papers in APA format"}
                     git={"https://www.github.com/walz0/papel"} />
