@@ -22,7 +22,7 @@ export default class Home extends Component {
             <div className="Home">
                 <div className="container">
                     <Code text={
-                        `$ whoami
+                        `λ whoami
                         > Aidan Walz`
                     } />
                     <Terminal />

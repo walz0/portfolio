@@ -10,15 +10,15 @@ export default class Terminal extends Component {
         this.state = {
             inputText: "",
             lines: [
-                `Welcome to my website! 
-                I'm a software engineer that works mainly in web design and data 
-                mining / bots. I also enjoy game design and develop games in the
-                Unity engine occasionally. Below is a collection of some notable 
-                projects, as well as this terminal, which is completely interactive!
-                ~
-                ~
-                ~
-                ~
+                `hi there \\o
+                my name is aidan, im currently a freelance developer looking to
+                expand my horizons to something new and interesting. for the past
+                year i have specialized in web3 apps on the ethereum and solana
+                networks. i enjoy designing efficient and scalable systems to deliver
+                reliable products that push expectations. my true passion lies in
+                python development, many of my favorite projects are compact and
+                effective scripts i wrote on a binge after an idea popped into my
+                head.
                 ~
                 ~
                 ~
