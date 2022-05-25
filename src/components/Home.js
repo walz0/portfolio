@@ -8,7 +8,7 @@ import GitHubCalendar from 'react-github-calendar';
 
 export default class Home extends Component {
     render() {
-        const exampleTheme = {
+        const colorScheme = {
             background: 'transparent',
             text: '#ffffff',
             grade4: 'hsl(338, 78%, 30%)',
@@ -28,31 +28,22 @@ export default class Home extends Component {
                     <Terminal />
                 </div>
                 <Section 
-                    title="Github Statistics" 
-                    element={ <GitHubCalendar 
-                        username="walz0" 
-                        theme={exampleTheme} 
-                        /> }/>
-                <Project 
-                    title={"papel"} 
-                    desc={"A raw text document router for writing papers in APA format"}
-                    git={"https://www.github.com/walz0/papel"} />
-                <Project 
-                    title={"stock-py"} 
-                    desc={"A library of functions for scraping and analyzing stock market data"}
-                    git={"https://www.github.com/walz0/papel"} />
-                <Project 
-                    title={"papel"} 
-                    desc={"A raw text document router for writing papers in APA format"}
-                    git={"https://www.github.com/walz0/papel"} />
-                <Project 
-                    title={"papel"} 
-                    desc={"A raw text document router for writing papers in APA format"}
-                    git={"https://www.github.com/walz0/papel"} />
-               <Project 
-                    title={"papel"} 
-                    desc={"A raw text document router for writing papers in APA format"}
-                    git={"https://www.github.com/walz0/papel"} />
+                    title="hmmm" 
+                    desc="fuck"
+                    element={<div></div>} />
+                <Project repo={"papel"} />
+                <Project repo={"stock-py"} />
+                <Project repo={"frc-analysis"} />
+                <Project repo={"frc-match-dl"} />
+                <Project repo={"twitter-dm-bot"} />
+                <Project repo={"emdr"} />
+                {/*
+                    <Project repo={"as-website"} />
+                    <Project repo={"walz-flooring"} />
+                    <Project repo={"backpack"} />
+                    <Project repo={"pebbl"} />
+                    <Project repo={"nft-generator"} />
+                */}
             </div>
         )
     }
