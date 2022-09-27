@@ -8,11 +8,20 @@ export default class Navbar extends Component {
         return (
             <div className="Navbar">
                 <ul>
-                    <div className="github-link">
+                    {/* <div className="github-link">
                         <a href="https://www.github.com/walz0/" title="github.com/walz0">
                             <FontAwesomeIcon icon={faGithub} />
                         </a>
-                    </div>
+                    </div> */}
+                    <li>
+                        <a href="/about">about</a>
+                    </li>
+                    <li>
+                        <a href="/contact">contact</a>
+                    </li>
+                    <li>
+                        <a href="/blog">blog</a>
+                    </li>
                 </ul>                
             </div>
         )

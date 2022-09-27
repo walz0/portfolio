@@ -5,6 +5,7 @@ import Terminal from './Terminal';
 import Project from './Project';
 import Section from './Section';
 import Cascade from './Cascade';
+import Navbar from './Navbar';
 
 export default class Home extends Component {
     render() {
@@ -28,7 +29,8 @@ export default class Home extends Component {
                             <Project 
                                 title={"papel"} />
                             <Project 
-                                title={"frc-analysis"} />
+                                title={"frc-analysis"}
+                                demo={"https://walz0.github.io/frc"} />
                         </div>
                     }/>
                 {/* <Project 

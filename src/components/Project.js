@@ -46,11 +46,12 @@ export default class Project extends Component {
                 <div className="project-title">{ this.props.title }</div>
                 <div className="project-desc">{ this.state.desc }</div>
                 <div className="github">
-                    <a href={ "https://github.com/walz0/" + this.props.title }>Source Code</a>
+                    <a href={ "https://github.com/walz0/" + this.props.title } target="_blank">Source Code</a>
                 </div>
-                <div className="demo">
-                    <a>Demo</a>
-                </div>
+                { this.props.demo !== undefined ? 
+                    <div className="demo">
+                        <a href={ this.props.demo } target="_blank">📑 Demo</a>
+                    </div> : null}
                 <div className="language">
                     { this.state.lang ? <img 
                         src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${this.state.langIcon}/${this.state.langIcon}-original.svg`} 

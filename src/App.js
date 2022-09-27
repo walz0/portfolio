@@ -10,7 +10,7 @@ import Home from './components/Home';
 function App() {
   return (
     <div className="App">
-      {/*<Navbar />*/}
+      <Navbar />
 
       <Router>
         <Switch>
