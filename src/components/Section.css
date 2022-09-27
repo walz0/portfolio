@@ -1,10 +1,15 @@
 .Section {
-    background: #9198e5;
-    background: radial-gradient(circle, #E3879E 0%, #8B5FBF 100%);
+    /* background: #9198e5; */
+    background: #ececec;
+    /* background: radial-gradient(circle, #E3879E 0%, #8B5FBF 100%); */
+    background: radial-gradient(circle, #c0c0c0, 0%, #f1f1f1 100%);
+
+    box-shadow: 1px 1px 5px #96969662;
+
+    color: #000;
 
     width: 100%;
     padding: 50px;
-
 }
 
 .Section .title {

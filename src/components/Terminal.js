@@ -12,7 +12,6 @@ export default class Terminal extends Component {
             lines: [
                 `
                 ~
-                hi there \\o.
                 my name is aidan, im currently a freelance developer looking to
                 expand my horizons to something new and interesting. for the past
                 year i have specialized in web3 apps on the ethereum and solana
@@ -46,9 +45,7 @@ export default class Terminal extends Component {
         inputBox.scrollTop = inputBox.scrollHeight + 50;
 
         // Get total number of commits on portfolio
-        axios.get('https://api.github.com/repos/walz0/portfolio/commits', {
-                headers: {Authorization: "Basic " + process.env.REACT_APP_GITHUB_AUTH}
-            })
+        axios.get('https://api.github.com/repos/walz0/portfolio/commits')
             .then((response) => {
                 this.setState({
                     version: parseInt(response.data.length, 10)

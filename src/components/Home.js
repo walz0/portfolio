@@ -4,20 +4,10 @@ import './Home.css';
 import Terminal from './Terminal';
 import Project from './Project';
 import Section from './Section';
-import GitHubCalendar from 'react-github-calendar';
+import Cascade from './Cascade';
 
 export default class Home extends Component {
     render() {
-        const colorScheme = {
-            background: 'transparent',
-            text: '#ffffff',
-            grade4: 'hsl(338, 78%, 30%)',
-            grade3: 'hsl(338, 78%, 44%)',
-            grade2: 'hsl(338, 78%, 58%)',
-            grade1: 'hsl(338, 78%, 72%)',
-            grade0: '#eee',
-        };
-
         return (
             <div className="Home">
                 <div className="container">
@@ -27,23 +17,35 @@ export default class Home extends Component {
                     } />
                     <Terminal />
                 </div>
+                <Cascade />
                 <Section 
-                    title="hmmm" 
-                    desc="fuck"
-                    element={<div></div>} />
-                <Project repo={"papel"} />
-                <Project repo={"stock-py"} />
-                <Project repo={"frc-analysis"} />
-                <Project repo={"frc-match-dl"} />
-                <Project repo={"twitter-dm-bot"} />
-                <Project repo={"emdr"} />
-                {/*
-                    <Project repo={"as-website"} />
-                    <Project repo={"walz-flooring"} />
-                    <Project repo={"backpack"} />
-                    <Project repo={"pebbl"} />
-                    <Project repo={"nft-generator"} />
-                */}
+                    title="Notable Projects"
+                    // desc="section"
+                    element={
+                        <div className='project-container'>
+                            <Project 
+                                title={"frc-match-dl"} />
+                            <Project 
+                                title={"papel"} />
+                            <Project 
+                                title={"frc-analysis"} />
+                        </div>
+                    }/>
+                {/* <Project 
+                    title={"frc-match-dl"} 
+                    git={"https://www.github.com/walz0/papel"} />
+                <Project 
+                    title={"stock-py"} 
+                    git={"https://www.github.com/walz0/papel"} />
+                <Project 
+                    title={"papel"} 
+                    git={"https://www.github.com/walz0/papel"} />
+                <Project 
+                    title={"frc-analysis"} 
+                    git={"https://www.github.com/walz0/papel"} />
+               <Project 
+                    title={"Ishiiruka"} 
+                    git={"https://www.github.com/walz0/papel"} /> */}
             </div>
         )
     }

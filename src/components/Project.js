@@ -7,34 +7,54 @@ export default class Project extends Component {
         super(props);
 
         this.state = {
-            description: null
+            desc: undefined,
+            lang: undefined,
+            langIcon: undefined
         };
     }
 
     componentDidMount() {
-        axios.get("https://api.github.com/repos/walz0/" + this.props.repo, {
-            headers: {
-                Authorization: "Basic " + process.env.REACT_APP_GITHUB_AUTH
-            }})
-            .then((res) => {
-                this.setState({ description: res.data.description })
+        axios.get('https://api.github.com/repos/walz0/' + this.props.title, {
+                headers: { "Authorization": "Bearer " + process.env.REACT_APP_GITHUB_TOKEN }
             })
+            .then((response) => {
+                this.setState({
+                    desc: response.data["description"]
+                })
+            })
+            .catch((err) => {})
+        axios.get('https://api.github.com/repos/walz0/' + this.props.title + '/languages', {
+                headers: { "Authorization": "Bearer " + process.env.REACT_APP_GITHUB_TOKEN }
+            })
+            .then((response) => {
+                // Select languages with most lines of code
+                let icon = Object.keys(response.data)[0].toLowerCase()
+                if (icon == "html") { icon = "html5" }
+                if (icon == "c++") { icon = "cplusplus" }
+                this.setState({
+                    lang: Object.keys(response.data)[0],
+                    langIcon: icon
+                })
+            })
+            .catch((err) => {})
     }
 
     render() {
-        if (this.state.description == null) {
-            return (<div></div>)
-        }
-        else {
-            return (
-                <div className="Project">
-                    <div className="project-title">{"λ " + this.props.repo}</div>
-                    <div className="project-desc">{ "> " + this.state.description }</div>
-                    <div className="github">
-                        <a target={"_blank"} href={ "https://github.com/walz0/" + this.props.repo }>{"</> src"}</a>
-                    </div>
+        console.log(this.state.lang)
+        return (
+            <div className="Project">
+                <div className="project-title">{ this.props.title }</div>
+                <div className="project-desc">{ this.state.desc }</div>
+                <div className="github">
+                    <a href={ "https://github.com/walz0/" + this.props.title }>Source Code</a>
                 </div>
-            )
-        }
+                <div className="language">
+                    { this.state.lang ? <img 
+                        src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${this.state.langIcon}/${this.state.langIcon}-original.svg`} 
+                        className="lang-icon"/> : null}
+                    { this.state.lang }
+                </div>
+            </div>
+        )
     }
 }

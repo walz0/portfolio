@@ -16,10 +16,12 @@ function App() {
         <Switch>
           <Route path="/about" />
           <Route path="/contact" />
+          <Route path="/blog" />
           <Route path="/">
             <Home />
           </Route>
         </Switch>
+
       </Router>
     </div>
   );
