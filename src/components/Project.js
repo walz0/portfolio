@@ -48,6 +48,9 @@ export default class Project extends Component {
                 <div className="github">
                     <a href={ "https://github.com/walz0/" + this.props.title }>Source Code</a>
                 </div>
+                <div className="demo">
+                    <a>Demo</a>
+                </div>
                 <div className="language">
                     { this.state.lang ? <img 
                         src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${this.state.langIcon}/${this.state.langIcon}-original.svg`} 
