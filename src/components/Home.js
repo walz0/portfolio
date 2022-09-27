@@ -20,7 +20,7 @@ export default class Home extends Component {
                 </div>
                 <Cascade />
                 <Section 
-                    title="Notable Projects"
+                    title="Projects"
                     // desc="section"
                     element={
                         <div className='project-container'>
