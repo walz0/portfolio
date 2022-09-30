@@ -45,7 +45,9 @@ export default class Terminal extends Component {
         inputBox.scrollTop = inputBox.scrollHeight + 50;
 
         // Get total number of commits on portfolio
-        axios.get('https://api.github.com/repos/walz0/portfolio/commits')
+        axios.get('https://api.github.com/repos/walz0/portfolio/commits', {
+            headers: { "Authorization": "Bearer " + process.env.REACT_APP_GITHUB_TOKEN }
+        })
             .then((response) => {
                 this.setState({
                     version: parseInt(response.data.length, 10)
