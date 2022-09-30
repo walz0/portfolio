@@ -15,7 +15,7 @@
     font-family: "Poppins";
     font-weight: 300;
 
-    position: fixed;
+    /* position: fixed; */
     z-index: 2;
 }
 
