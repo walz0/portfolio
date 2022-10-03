@@ -15,8 +15,17 @@
     font-family: "Poppins";
     font-weight: 300;
 
-    /* position: fixed; */
+    position: fixed;
     z-index: 2;
+}
+
+.Navbar .logo {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    
+    top: 12px;
+    left: 12px;
 }
 
 .Navbar ul {
