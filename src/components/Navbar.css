@@ -31,7 +31,7 @@
 .Navbar ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: right;
 
     margin-left: -35px;
 

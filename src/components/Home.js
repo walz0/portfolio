@@ -5,7 +5,6 @@ import Terminal from './Terminal';
 import Project from './Project';
 import Section from './Section';
 import Cascade from './Cascade';
-import Navbar from './Navbar';
 
 export default class Home extends Component {
     render() {
