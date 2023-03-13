@@ -19,7 +19,7 @@ export default class Home extends Component {
                 </div>
                 <Cascade />
                 <Section 
-                    title="Projects"
+                    title="projects"
                     // desc="section"
                     element={
                         <div className='project-container'>
@@ -32,21 +32,9 @@ export default class Home extends Component {
                                 demo={"https://walz0.github.io/frc"} />
                         </div>
                     }/>
-                {/* <Project 
-                    title={"frc-match-dl"} 
-                    git={"https://www.github.com/walz0/papel"} />
-                <Project 
-                    title={"stock-py"} 
-                    git={"https://www.github.com/walz0/papel"} />
-                <Project 
-                    title={"papel"} 
-                    git={"https://www.github.com/walz0/papel"} />
-                <Project 
-                    title={"frc-analysis"} 
-                    git={"https://www.github.com/walz0/papel"} />
-               <Project 
-                    title={"Ishiiruka"} 
-                    git={"https://www.github.com/walz0/papel"} /> */}
+                <Section 
+                    title="open source"
+                    element={<div />}/>
             </div>
         )
     }

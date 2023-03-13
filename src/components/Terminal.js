@@ -14,13 +14,14 @@ export default class Terminal extends Component {
                 ~
                 my name is aidan, im currently a freelance developer looking to
                 expand my horizons to something new and interesting. for the past
-                year i have specialized in web3 apps on the ethereum and solana
-                networks. i enjoy designing efficient and scalable systems to deliver
-                reliable products that push expectations. my true passion lies in
-                python development, many of my favorite projects are compact and
+                two years i have specialized in web3 and general fullstack web 
+                app development. i enjoy designing efficient systems and seeing
+                them perform at scale. some of my favorite projects are compact and
                 effective scripts i wrote on a binge after an idea popped into my
                 head. feel free to have a look at my work, and if you are interested
                 in working together send me an email @ aidan.m.walz@gmail.com
+                ~
+                ~
                 ~
                 Type 'help' for more info on the available commands...`
             ],

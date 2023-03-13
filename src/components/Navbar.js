@@ -12,19 +12,12 @@ export default class Navbar extends Component {
                     <img className="logo" src={logo} alt="logo"></img>
                 </a>
                 <ul>
-                    {/* <div className="github-link">
-                        <a href="https://www.github.com/walz0/" title="github.com/walz0">
-                            <FontAwesomeIcon icon={faGithub} />
+                    <li><a href="/about">about</a></li>
+                    <li><a href="/contact">contact</a></li>
+                    <li>
+                        <a href={process.env.REACT_APP_API + "/AidanWalz_resume.pdf"} target="_blank">
+                        resume
                         </a>
-                    </div> */}
-                    <li>
-                        <a href="/about">about</a>
-                    </li>
-                    <li>
-                        <a href="/contact">contact</a>
-                    </li>
-                    <li>
-                        <a href="/blog">blog</a>
                     </li>
                 </ul>                
             </div>
