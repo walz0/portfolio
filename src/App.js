@@ -1,7 +1,7 @@
 import Navbar from './components/Navbar'
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
 } from "react-router-dom";
 import './App.css';
@@ -13,15 +13,12 @@ function App() {
       <Navbar />
 
       <Router>
-        <Switch>
-          <Route path="/about" />
-          <Route path="/contact" />
-          <Route path="/blog" />
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-
+        <Routes>
+            <Route path="/" element={<Home />}>
+              {/*<Route path="blog" element={} />
+              <Route path="contact" element={} />*/}
+            </Route>
+        </Routes>
       </Router>
     </div>
   );
